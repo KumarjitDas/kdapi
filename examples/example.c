@@ -1,8 +1,8 @@
 /**
- * @file test.c
+ * @file example.c
  * @author Kumarjit Das
- * @date 2024-06-20
- * @brief KDAPI library main test source file.
+ * @date 2024-06-29
+ * @brief KDAPI library main example source file.
  */
 /**
  * LICENSE:
@@ -42,7 +42,7 @@ int main(int argc, char **argv)
   (void) argc;
   (void) argv;
 
-  (void) printf("KDAPI test :: begin\n\n");
+  (void) printf("KDAPI example :: begin\n\n");
 
   (void) printf("API Version: " KD_VERSION_STR "\n");
   
@@ -195,7 +195,7 @@ int main(int argc, char **argv)
     "\n"
   );
 
-  (void) printf("\nKDAPI test :: end\n\n");
+  (void) printf("\nKDAPI example :: end\n\n");
 
   return 0;
 }

@@ -32,25 +32,13 @@
  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-/**
- * Main Usable Components
- * ----------------------
- * 
- * - Get compiler using `KD_COMPILER_<compiler_name>`.
- * - Get target OS using `KD_OS_<os_name>`.
- * - Get target CPU using `KD_CPU_<cpu_name>`.
- * - Use `KD_DLL` when building DLL.
- * - Use `KD_IMPORTEXPORT` for import and export signatures when building DLL.
- * - Use `KDAPI(T)` (T -> return type) for function definitions.
- * - Use `KD_EXTERN_BEGIN` and `KD_EXTERN_END` to wrap function declarations.
- * - Use `KD_ENDIAN_LITTLE` and `KD_ENDIAN_BIG` to determine endianness.
- */
 
 
 #if defined KD_DEFINED_LIBKDAPI
   #undef KD_DEFINED_LIBKDAPI
-  #define KD_DEFINED_LIBKDAPI 1
 #endif  /* KD_DEFINED_LIBKDAPI */
+
+#define KD_DEFINED_LIBKDAPI 1
 
 #define KD_VERSION_MAJOR @KDAPI_VERSION_MAJOR@
 #define KD_VERSION_MINOR @KDAPI_VERSION_MINOR@

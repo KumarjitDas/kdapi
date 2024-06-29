@@ -273,7 +273,7 @@ Twitter: [@kumarjitdas1999](https://twitter.com/kumarjitdas1999)
 LinkedIn:
 [Kumarjit Das](https://www.linkedin.com/in/kumarjit-das/)
 
-E-mail: [kumarjitdas1999@gmail.com](kumarjitdas1999+github@gmail.com)
+E-mail: [kumarjitdas1999@gmail.com](mailto:kumarjitdas1999+github@gmail.com)
 
 Project link:
 [KDAPI](https://github.com/KumarjitDas/kdapi)
