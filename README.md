@@ -149,11 +149,7 @@ clean.bat
 
 #### On Linux
 
-<<<<<<< HEAD
 Run the installation script:
-=======
-Run the install script:
->>>>>>> 9f08a41ea98d91ee1be5aac72d17dcf5013cd39e
 
 ```bash
 ./install.sh
@@ -161,11 +157,7 @@ Run the install script:
 
 #### On Windows
 
-<<<<<<< HEAD
 Run the installation script:
-=======
-Run the install script:
->>>>>>> 9f08a41ea98d91ee1be5aac72d17dcf5013cd39e
 
 ```batch
 install.bat
