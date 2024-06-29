@@ -32,7 +32,7 @@
 
 cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
 
-# Validate the build configuration
+# Setup all project settings/variables
 include("CMake/setup_project.cmake")
 
 # Setting the project name, version, and other descriptions
@@ -57,7 +57,7 @@ include("CMake/set_install_directories.cmake")
 # Set the C standard
 include("CMake/set_c_standard.cmake")
 
-# Set the compiler warnings
+# Set the compiler flags/warnings
 include("cmake/set_compiler_flags.cmake")
 
 # Set include directories
@@ -74,6 +74,9 @@ include("CMake/export_rules.cmake")
 
 # Adding the package configuration for `find_package` support
 include("CMake/package_configuration.cmake")
+
+# Install all non-project files
+include("CMake/install_nonproject_files.cmake")
 
 # Adding the `Examples` directories
 add_subdirectory("examples")

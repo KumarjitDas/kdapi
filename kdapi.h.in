@@ -418,3 +418,9 @@
 #else
   #define KD_ENDIAN_BIG 1
 #endif
+
+
+/* To suppress compiler error: ISO C requires a translation unit to contain at least one declaration" */
+#if 0
+  const int __kd_kdapi__ignore__;
+#endif
