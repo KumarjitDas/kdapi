@@ -8,7 +8,6 @@ KDAPI is a simple, header-only C library designed to provide compile-time system
 - [Features](#features)
 - [Installation](#installation)
 - [Requirements](#requirements)
-- [Getting Started](#getting-started)
 - [Usage](#usage)
 - [Roadmap](#roadmap)
 - [Contributing](#contributing)
@@ -27,22 +26,21 @@ KDAPI is a simple, header-only C library designed to provide compile-time system
 - Determines the target CPU architecture.
 - Checks system endianness.
 - Provides macros for import-export signatures, calling conventions, and extern indicators.
+- CMake target for ease of use with other CMake projects.
 
 ## Installation
 
 To get started with this project, download and install the following.
 
 - Download and install **git**
-  - If you use *Windows*, then go to [this link](https://git-scm.com/downloads) and download and install the suitable
-    version.
+  - If you use *Windows*, then go to this [link](https://git-scm.com/downloads) and download and install the suitable version.
   - If you use any stable version of *Debian/Ubuntu* then run this command in your terminal
 
     ```sh
     sudo apt-get install git
     ```
 
-  - If you use *macOS* then install [homebrew](https://brew.sh/) if you don't already have it, then run this command
-    in your terminal
+  - If you use *macOS* then install [homebrew](https://brew.sh/) if you don't already have it, then run this command in your terminal
 
     ```sh
     brew install git
@@ -54,12 +52,9 @@ To get started with this project, download and install the following.
   git clone https://github.com/KumarjitDas/kdapi.git
   ```
 
-- Download and install a **C** compiler (*clang* or *gcc*)
-  - If you use *Windows 10* then download and install a suitable version of **clang** from
-    [this](https://releases.llvm.org/download.html) link. For **gcc**, use the suitable *MinGW* version from
-    [this](http://mingw-w64.org/doku.php/download) link.
-  - If you use any stable version of *Debian/Ubuntu* then run these commands in your terminal to download and install
-    **clang** and **gcc** compilers
+- Download and install a **C** compiler
+  - If you use *Windows 8/10/11* then download **Visual Studio 2017/2019/2022** from this [link](https://visualstudio.microsoft.com/downloads/) download and install a suitable version of **clang** from this [link](https://releases.llvm.org/download.html). For **gcc**, use the suitable *MinGW* version from this [link](http://mingw-w64.org/doku.php/download).
+  - If you use any stable version of *Debian/Ubuntu* then run these commands in your terminal to download and install **clang** and **gcc** compilers
 
     ```sh
     sudo apt install clang
@@ -83,94 +78,6 @@ To get started with this project, download and install the following.
   sudo apt install gcc-multilib
   ```
 
-## Getting Started
-
-Users need to set up their environment using the provided template setup files. The `setup_env.*` files in the root directory are for development purposes and are not provided to the users. Users can create their own setup files or copy the template files from the `templates` directory.
-
-### Setup Environment
-
-Copy the template setup files:
-
-#### On Linux
-
-Run the build script:
-
-```bash
-cp templates/setup_env.template.sh setup_env.sh
-```
-
-#### On Windows
-
-Run the build script:
-
-```batch
-COPY templates\setup_env.template.bat setup_env.bat
-```
-
-Modify the `setup_env.sh` and `setup_env.bat` files to match your build environment.
-
-### Building the Project
-
-#### On Linux
-
-Run the build script:
-
-```bash
-./build.sh
-```
-
-#### On Windows
-
-Run the build script:
-
-```batch
-build.bat
-```
-
-### Cleaning the Build
-
-#### On Linux
-
-Run the clean script:
-
-```bash
-./clean.sh
-```
-
-#### On Windows
-
-Run the clean script:
-
-```batch
-clean.bat
-```
-
-### Installing the Project
-
-#### On Linux
-
-<<<<<<< HEAD
-Run the installation script:
-=======
-Run the install script:
->>>>>>> 9f08a41ea98d91ee1be5aac72d17dcf5013cd39e
-
-```bash
-./install.sh
-```
-
-#### On Windows
-
-<<<<<<< HEAD
-Run the installation script:
-=======
-Run the install script:
->>>>>>> 9f08a41ea98d91ee1be5aac72d17dcf5013cd39e
-
-```batch
-install.bat
-```
-
 ## Usage
 
 Include the `kdapi.h` header file in your C project to use KDAPI.
@@ -189,6 +96,17 @@ An example usage of KDAPI can be found in the `test.c` file.
 
 int main() {
     printf("KDAPI Version: %s\n", KD_VERSION_STR);
+    
+    printf("Current OS: %s\n",
+    #ifdef KD_OS_LINUX
+           "Linux"
+    #elif KD_OS_WINDOWS
+           "Windows"
+    #else
+           "Unknown"
+    #endif
+    );
+    
     return 0;
 }
 ```
@@ -205,7 +123,7 @@ The list of features and functions implemented till now is given in [Project Sta
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any
 contributions you make are greatly appreciated.
 
-- Fork this Project
+- Fork this project \[[kdapi](https://github.com/KumarjitDas/kdapi)\]
 - Create your *Feature Branch*
 
   ```sh
@@ -215,7 +133,7 @@ contributions you make are greatly appreciated.
 - Commit your *Changes*
 
   ```sh
-  git commit -m 'Add some AmazingFeature'
+  git commit -m 'Added some AmazingFeature'
   ```
 
 - Push to the Branch
@@ -224,7 +142,7 @@ contributions you make are greatly appreciated.
   git push origin feature/AmazingFeature
   ```
 
-- Create a *Pull Request*
+- Create a [pull request](https://github.com/KumarjitDas/kdapi/pulls)
 
 ## Naming Convention
 
@@ -242,8 +160,6 @@ The KDAPI project follows a consistent naming convention to ensure readability a
 - **File Names**: File names are in lowercase and use underscores to separate words.
   - Examples: `kdapi.h`, `test.c`, `setup_env.sh`
 
-This naming convention helps in clearly identifying different types of identifiers and their purposes within the codebase.
-
 ## License
 
 This project is distributed under the **BSD 2-Clause License**. See [LICENSE](LICENSE.txt) for more information.
@@ -252,23 +168,19 @@ This project is distributed under the **BSD 2-Clause License**. See [LICENSE](LI
 
 List of functionalities/features implemented so far:
 
-- Compiler detection (Intel, GCC, LLVM, etc.)
-- Target operating system identification (Linux, Windows, etc.)
-- Target CPU architecture detection (x86, x64, ARM, etc.)
-- Endianness determination (little-endian, big-endian)
-- Import-export macros for DLL handling
-- Calling convention macros (cdecl, stdcall, fastcall)
-- Environment setup scripts for both Linux and Windows
-- Build scripts for compiling and linking the project
-- Clean scripts for removing build artifacts
-- Install scripts for setting up the library
-- Example test program demonstrating the library usage
+- **Compiler Detection**: Macros for various compilers (Intel, GCC, LLVM, etc.).
+- **OS Identification**: Macros for target operating systems (Linux, Windows, etc.).
+- **CPU Architecture Detection**: Macros for target CPU architectures (x86, x64, ARM, etc.).
+- **Endianness Determination**: Macros for little-endian and big-endian.
+- **DLL Handling**: Import-export macros for DLLs.
+- **Calling Conventions**: Macros for cdecl, stdcall, fastcall.
+- **Build Configuration**: CMake configuration files for shared and static builds.
+- **Example Program**: [Example](examples/example.c) demonstrating library usage.
 
 
 ## Acknowledgment
 
-I appreciate these websites which helped me to make such good **README** file, and helped me to learn about project
-versioning and keeping **CHANGELOG**.
+I appreciate these websites which helped me to make such good **README** file, and helped me to learn about project versioning and keeping **CHANGELOG**.
 
 - [Make a README](https://www.makeareadme.com/)
 - [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
@@ -278,13 +190,11 @@ versioning and keeping **CHANGELOG**.
 
 Twitter: [@kumarjitdas1999](https://twitter.com/kumarjitdas1999)
 
-LinkedIn:
-[Kumarjit Das](https://www.linkedin.com/in/kumarjit-das/)
+LinkedIn: [Kumarjit Das](https://www.linkedin.com/in/kumarjit-das)
 
-E-mail: [kumarjitdas1999@gmail.com](kumarjitdas1999+github@gmail.com)
+E-mail: [kumarjitdas1999@gmail.com](mailto:kumarjitdas1999+github@gmail.com)
 
-Project link:
-[KDAPI](https://github.com/KumarjitDas/kdapi)
+Project link: [KDAPI](https://github.com/KumarjitDas/kdapi)
 
 ## Versioning
 
