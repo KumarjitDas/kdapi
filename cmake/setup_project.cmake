@@ -1,6 +1,6 @@
 # file: setup_project.cmake
 # author: Kumarjit Das
-# date: 2024-06-29
+# date: 2024-07-03
 # brief: KDAPI library cmake project setup file.
 
 # BSD 2-Clause License
@@ -41,7 +41,7 @@ string(TOUPPER ${KDAPI_LIBRARY_NAME} KDAPI_LIBRARY_NAME_UPPER)
 
 # Setting project version
 set(${KDAPI_LIBRARY_NAME_UPPER}_VERSION_MAJOR 1)
-set(${KDAPI_LIBRARY_NAME_UPPER}_VERSION_MINOR 0)
+set(${KDAPI_LIBRARY_NAME_UPPER}_VERSION_MINOR 1)
 set(${KDAPI_LIBRARY_NAME_UPPER}_VERSION_PATCH 0)
 
 string(CONCAT ${KDAPI_LIBRARY_NAME_UPPER}_VERSION
@@ -53,7 +53,7 @@ string(CONCAT ${KDAPI_LIBRARY_NAME_UPPER}_VERSION
 string(CONCAT ${KDAPI_PROJECT_NAME_UPPER}_DESCRIPTION
   "A simple, header-only C library designed to provide compile-time system information.")
 
-set(KDAPI_INSTALL_DIR_NAME "${KDAPI_PROJECT_NAME_LOWER}-${${KDAPI_LIBRARY_NAME_UPPER}_VERSION}")
+set(KDAPI_INSTALL_DIR_NAME "${KDAPI_PROJECT_NAME_LOWER}-v${${KDAPI_LIBRARY_NAME_UPPER}_VERSION}")
 
 # Creating the write_status function
 function(write_status)
@@ -71,8 +71,7 @@ write_status("Initiating the project setup.")
 # Generate compile commands for IDE's
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "")
 
-write_status("CMAKE_EXPORT_COMPILE_COMMANDS is set to: "
-  ${CMAKE_EXPORT_COMPILE_COMMANDS})
+write_status("CMAKE_EXPORT_COMPILE_COMMANDS is set to: ${CMAKE_EXPORT_COMPILE_COMMANDS}")
 
 # Setting the current user directory
 if(CMAKE_HOST_SYSTEM_NAME STREQUAL "Windows")
@@ -84,9 +83,7 @@ endif ()
 write_status("Current user path: ${KDAPI_CURRENT_USER_PATH}")
 
 # Getting the build directory name from current binary directory
-string(REPLACE "${CMAKE_SOURCE_DIR}/"
-  "" KDAPI_BUILD_DIRECTORY
-  ${CMAKE_CURRENT_BINARY_DIR})
+string(REPLACE "${CMAKE_SOURCE_DIR}/" "" KDAPI_BUILD_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
 
 # Setting the build library type name
 if(BUILD_SHARED_LIBS)

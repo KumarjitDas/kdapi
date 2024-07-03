@@ -6,7 +6,6 @@ KDAPI is a simple, header-only C library designed to provide compile-time system
 ## Table of Contents
 
 - [Features](#features)
-- [Installation](#installation)
 - [Requirements](#requirements)
 - [Usage](#usage)
 - [Roadmap](#roadmap)
@@ -28,7 +27,7 @@ KDAPI is a simple, header-only C library designed to provide compile-time system
 - Provides macros for import-export signatures, calling conventions, and extern indicators.
 - CMake target for ease of use with other CMake projects.
 
-## Installation
+## Requirements
 
 To get started with this project, download and install the following.
 
@@ -36,19 +35,19 @@ To get started with this project, download and install the following.
   - If you use *Windows*, then go to this [link](https://git-scm.com/downloads) and download and install the suitable version.
   - If you use any stable version of *Debian/Ubuntu* then run this command in your terminal
 
-    ```sh
+    ```shell
     sudo apt-get install git
     ```
 
   - If you use *macOS* then install [homebrew](https://brew.sh/) if you don't already have it, then run this command in your terminal
 
-    ```sh
+    ```shell
     brew install git
     ```
 
 - Run the command to clone this repository
 
-  ```sh
+  ```shell
   git clone https://github.com/KumarjitDas/kdapi.git
   ```
 
@@ -56,57 +55,64 @@ To get started with this project, download and install the following.
   - If you use *Windows 8/10/11* then download **Visual Studio 2017/2019/2022** from this [link](https://visualstudio.microsoft.com/downloads/) download and install a suitable version of **clang** from this [link](https://releases.llvm.org/download.html). For **gcc**, use the suitable *MinGW* version from this [link](http://mingw-w64.org/doku.php/download).
   - If you use any stable version of *Debian/Ubuntu* then run these commands in your terminal to download and install **clang** and **gcc** compilers
 
-    ```sh
+    ```shell
     sudo apt install clang
     ```
 
-    ```sh
+    ```shell
     sudo apt install gcc
     ```
 
   - In *macOS*, **clang** is the default **C** compiler. To download and install gcc, run this command in your terminal
 
-    ```sh
+    ```shell
     brew install gcc
     ```
-
-## Requirements
 
 - For building on Linux 32-bit targets on a 64-bit platform, `gcc-multilib` must be installed:
 
   ```bash
   sudo apt install gcc-multilib
   ```
+- Download and install **CMake** from [kitware](https://cmake.org/files/v3.19/) or [GitHub](https://github.com/Kitware/CMake/releases/tag/v3.19.6)
 
 ## Usage
 
-Include the `kdapi.h` header file in your C project to use KDAPI.
+- Download the [latest release](https://github.com/KumarjitDas/kdapi/releases/latest) of the project according to your system specification.
 
-```c
-#include "kdapi.h"
-```
+- For CMake projects add the _kdapi_ library _cmake_ directory path to the `CMAKE_PREFIX_PATH` variable.
+  - In CMake file
+    ```cmake
+    # ...
+    list(APPEND CMAKE_PREFIX_PATH path/to/kdapi/lib/cmake)
+    # ...
+    ```
+  - In command line as an argument
+    ```shell
+    cmake ... -DCMAKE_PREFIX_PATH=path/to/kdapi/lib/cmake ...
+    ```
+- Include the _kdapi.h_ header file in your C project to use KDAPI.
+  ```c
+  #include "kdapi.h"
+  ```
+
+- To build the project from source using CMake you have to provide target platform information (`KDAPI_TARGET_OS` and `KDAPI_TARGET_ARCH`. For example:
+  ```shell
+  cmake -DKDAPI_TARGET_OS=windows -DKDAPI_TARGET_ARCH=x64 -G Ninja -S path/to/kdapi -B path/to/build
+  ```
 
 ### Example
 
-An example usage of KDAPI can be found in the `test.c` file.
+You can find all the examples [here](examples). Here's a demo:
 
 ```c
 #include <stdio.h>
 #include "kdapi.h"
 
 int main() {
-    printf("KDAPI Version: %s\n", KD_VERSION_STR);
-    
-    printf("Current OS: %s\n",
-    #ifdef KD_OS_LINUX
-           "Linux"
-    #elif KD_OS_WINDOWS
-           "Windows"
-    #else
-           "Unknown"
-    #endif
-    );
-    
+    printf("Compiler: " KD_COMP_STR "\n");
+    printf("Target Operating System: " KD_OS_STR "\n");
+    printf("Target CPU: " KD_CPU_STR "\n");
     return 0;
 }
 ```
@@ -126,19 +132,19 @@ contributions you make are greatly appreciated.
 - Fork this project \[[kdapi](https://github.com/KumarjitDas/kdapi)\]
 - Create your *Feature Branch*
 
-  ```sh
+  ```shell
   git checkout -b feature/AmazingFeature
   ```
 
 - Commit your *Changes*
 
-  ```sh
+  ```shell
   git commit -m 'Added some AmazingFeature'
   ```
 
 - Push to the Branch
 
-  ```sh
+  ```shell
   git push origin feature/AmazingFeature
   ```
 
@@ -158,7 +164,7 @@ The KDAPI project follows a consistent naming convention to ensure readability a
   - Examples: `KD_VERSION_STR`, `KD_VERSION_MAJOR`
 
 - **File Names**: File names are in lowercase and use underscores to separate words.
-  - Examples: `kdapi.h`, `test.c`, `setup_env.sh`
+  - Examples: `kdapi.h`, `example.c`, `setup_project.cmake`
 
 ## License
 
@@ -172,10 +178,11 @@ List of functionalities/features implemented so far:
 - **OS Identification**: Macros for target operating systems (Linux, Windows, etc.).
 - **CPU Architecture Detection**: Macros for target CPU architectures (x86, x64, ARM, etc.).
 - **Endianness Determination**: Macros for little-endian and big-endian.
+- **C-String Identifiers**: Macros for human-readable C-string macros for compiler, OS, CPU, and endianness.
 - **DLL Handling**: Import-export macros for DLLs.
 - **Calling Conventions**: Macros for cdecl, stdcall, fastcall.
 - **Build Configuration**: CMake configuration files for shared and static builds.
-- **Example Program**: [Example](examples/example.c) demonstrating library usage.
+- **Example Programs**: [Examples](examples) demonstrating library usage.
 
 
 ## Acknowledgment

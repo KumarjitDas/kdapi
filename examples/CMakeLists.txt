@@ -1,6 +1,6 @@
 # file: CMakeLists.txt
 # author: Kumarjit Das
-# date: 2024-06-29
+# date: 2024-07-03
 # brief: KDAPI library examples cmake file.
 
 # BSD 2-Clause License
@@ -58,6 +58,7 @@ foreach(EXAMPLE_ITEM ${EXAMPLE_LIST})
   # Setting build postfixes for different build configurations
   set_target_properties(
     ${EXAMPLE_TARGET}      PROPERTIES
+    C_STANDARD             90
     DEBUG_POSTFIX          "${KDAPI_STATIC_POSTFIX}-d"
     RELEASE_POSTFIX        "${KDAPI_STATIC_POSTFIX}"
     MINSIZEREL_POSTFIX     "${KDAPI_STATIC_POSTFIX}-mr"
