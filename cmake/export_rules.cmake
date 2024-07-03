@@ -1,6 +1,6 @@
 # file: export_rules.cmake
 # author: Kumarjit Das
-# date: 2024-06-29
+# date: 2024-07-03
 # brief: KDAPI library cmake export rules file.
 
 # BSD 2-Clause License
@@ -52,7 +52,6 @@ install(EXPORT      ${KDAPI_PROJECT_NAME_LOWER}-targets
 # Rule to export all the targets directly from the build-tree
 export(
   EXPORT ${KDAPI_PROJECT_NAME_LOWER}-targets
-  # FILE "${CMAKE_CURRENT_BINARY_DIR}/${KDAPI_PROJECT_NAME_LOWER}-targets.cmake"
   FILE "${PROJECT_BINARY_DIR}/${KDAPI_PROJECT_NAME_LOWER}-targets.cmake"
   NAMESPACE KDAPI::
 )

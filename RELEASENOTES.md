@@ -1,5 +1,28 @@
 # Release Notes
 
+## [v1.1.0](https://github.com/KumarjitDas/kdapi/releases/tag/v1.1.0)
+3rd July 2024
+
+### Resolved Issues
+
+- [Issue #5](https://github.com/KumarjitDas/kdapi/issues/5): Changed all the _\*\_COMPILER\_\*_ to _\*\_COMP\_\*_.
+- [Issue #4](https://github.com/KumarjitDas/kdapi/issues/4): Added user readable c-string macros for _compiler_, _OS_, _CPU_, and _endianness_.
+- [Issue #3](https://github.com/KumarjitDas/kdapi/issues/3) Changed the name of the installation according to the chosen platform
+- [Issue #2](https://github.com/KumarjitDas/kdapi/issues/2) Changed the default C standard and set it to C89/90 or ANSI C standard for example source compilation.
+
+### Added
+
+- Second example [_examples/example2.c_](examples/example2.c).
+- Target platform validation.
+
+### Changed
+
+- Main example source file name(_examples/example.c_) to [_examples/example1.c_](examples/example1.c)
+
+### Removed
+
+- `/MD` option for MSVC compiler
+
 ## [v1.0.0](https://github.com/KumarjitDas/kdapi/releases/tag/v1.0.0)
 29th June 2024
 
@@ -18,5 +41,6 @@ For more details, see the full [Changelog](CHANGELOG.md).
 
 ## Version Details
 
-- **First Release**: 1.0.0
-- **Release Date**: 2024-06-29
+- **Current Version**: 1.1.0
+- **Release Date**: 2024-07-03
+- **Previous Version**: 1.0.0

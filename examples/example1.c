@@ -1,8 +1,8 @@
 /**
- * @file example.c
+ * @file example1.c
  * @author Kumarjit Das
- * @date 2024-06-29
- * @brief KDAPI library main example source file.
+ * @date 2024-07-03
+ * @brief KDAPI library example source file #1.
  */
 /**
  * LICENSE:
@@ -48,31 +48,31 @@ int main(int argc, char **argv)
   
   (void) printf(
     "Compiler: "
-    #if defined KD_COMPILER_INTEL
+    #if defined KD_COMP_INTEL
     "Intel C/C++"
-    #elif defined KD_COMPILER_MIPSPRO
+    #elif defined KD_COMP_MIPSPRO
     "MIPSpro C/C++"
-    #elif defined KD_COMPILER_HPCC
+    #elif defined KD_COMP_HPCC
     "HP-UX CC"
-    #elif defined KD_COMPILER_GCC || defined KD_COMPILER_APPLECC
+    #elif defined KD_COMP_GCC || defined KD_COMP_APPLECC
     "Gnu GCC"
-    #elif defined KD_COMPILER_IBM
+    #elif defined KD_COMP_IBM
     "IBM C/C++"
     #elif defined KD_COMP_MSVC
     "Microsoft Visual C++"
-    #elif defined KD_COMPILER_SUN
+    #elif defined KD_COMP_SUN
     "Sun Pro"
-    #elif defined KD_COMPILER_BORLAND
+    #elif defined KD_COMP_BORLAND
     "Borland C/C++"
-    #elif defined KD_COMPILER_METROWERKS
+    #elif defined KD_COMP_METROWERKS
     "MetroWerks CodeWarrior"
-    #elif defined KD_COMPILER_DEC
+    #elif defined KD_COMP_DEC
     "Compaq/DEC C/C++"
-    #elif defined KD_COMPILER_WATCOM
+    #elif defined KD_COMP_WATCOM
     "Watcom C/C++"
     #else
     "[Unknown]"
-    #endif  /* KD_COMPILER_INTEL */
+    #endif  /* KD_COMP_INTEL */
     "\n"
   );
 

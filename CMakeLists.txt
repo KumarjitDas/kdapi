@@ -1,6 +1,6 @@
 # file: CMakeLists.txt
 # author: Kumarjit Das
-# date: 2024-06-29
+# date: 2024-07-03
 # brief: KDAPI library main cmake file.
 
 # BSD 2-Clause License
@@ -41,6 +41,9 @@ project(${KDAPI_PROJECT_NAME}
   DESCRIPTION  "${${KDAPI_PROJECT_NAME_UPPER}_DESCRIPTION}"
   HOMEPAGE_URL "https://github.com/KumarjitDas/kdapi.git"
   LANGUAGES    "C")
+
+# Validate target platform
+include("CMake/validate_target_platform.cmake")
 
 # Validate the build configuration
 include("CMake/validate_build_config.cmake")
