@@ -3,7 +3,7 @@
 # date: 2024-06-29
 # brief: KDAPI library cmake install directories configuration file.
 
-# BSD 2-Clause License
+# License:
 #
 # Copyright (c) 2024, Kumarjit Das
 # All rights reserved.

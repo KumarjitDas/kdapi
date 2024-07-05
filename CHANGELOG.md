@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unreleased](https://github.com/KumarjitDas/kdapi/compare/v1.1.0...HEAD)
+
+- Resolved [Issue #9](https://github.com/KumarjitDas/kdapi/issues/9)&nbsp; (CMake files do not contain license statement)
+  - Added license statement to all CMake files.
+
 ## [v1.1.0](https://github.com/KumarjitDas/kdapi/compare/v1.0.0...v1.1.0) - 2024-07-03
 
 ### Fixed
