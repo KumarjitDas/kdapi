@@ -2,6 +2,11 @@
 
 ## [Unreleased](https://github.com/KumarjitDas/kdapi/compare/v1.1.0...HEAD)
 
+- Resolved [Issue #8](https://github.com/KumarjitDas/kdapi/issues/8)&nbsp; (Add architecture detection macros)
+  - Added macros to detect the architecture of the system
+    - For 32-bit and 64-bit integer
+    - For 32-bit and 64-bit pointer(address)
+
 - Updated main library version to _1.2.0_ in project setup.
 
 - Resolved [Issue #10](https://github.com/KumarjitDas/kdapi/issues/10)&nbsp; (Add undef statements for DLL macros)

@@ -1,7 +1,7 @@
 /**
  * @file kdapi.h
  * @author Kumarjit Das
- * @date 2024-07-05
+ * @date 2024-07-06
  * @version @KDAPI_VERSION_MAJOR@.@KDAPI_VERSION_MINOR@.@KDAPI_VERSION_PATCH@
  * @brief A simple header-only C library for compile-time system information.
  */
@@ -514,6 +514,59 @@
   #define KD_ENDIAN_BIG 1
   #define KD_ENDIAN_STR "big"
 #endif
+
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ *  Architecture Detection
+ * ---------------------------------------------------------------------------------------------------------------------
+ */
+
+#if defined _MSC_VER || defined __BORLANDC__ || defined __WATCOMC__ || (defined __alpha && defined __DECC)
+  #define KD_ARCH_64BIT_INT   1
+#elif defined __GNUC__ || defined __MWERKS__ || defined __SUNPRO_C || defined __SUNPRO_CC || defined __APPLE_CC__ || defined KD_OS_IRIX || defined _LONG_LONG || defined _CRAYC
+  #if __SIZEOF_LONG__ == 8
+    #define KD_ARCH_64BIT_INT 1
+  #endif
+#elif defined __LP64__ || defined __powerpc64__ || defined KD_CPU_SPARC64
+  #define KD_ARCH_64BIT_INT   1
+#endif
+
+#if !defined KD_ARCH_64BIT_INT
+  #define KD_ARCH_32BIT_INT   1
+#endif
+
+#if defined KD_ARCH_64BIT_INT
+  #define KD_ARCH_INT_STR     "64 bit"
+#elif defined KD_ARCH_32BIT_INT
+  #define KD_ARCH_INT_STR     "32 bit"
+#else
+  #define KD_ARCH_INT_STR     "Unknown"
+#endif  /* KD_ARCH_64BIT_INT */
+
+#if defined KD_CPU_AXP && (defined KD_OS_TRU64 || defined KD_OS_LINUX)
+  #define KD_ARCH_64BIT_PTR   1
+#endif
+
+#if defined KD_CPU_X86_64 && defined KD_OS_LINUX
+  #define KD_ARCH_64BIT_PTR   1
+#endif
+
+#if defined KD_CPU_SPARC64 || defined KD_OS_WIN64 || defined __64BIT__ || defined __LP64 || defined _LP64 || defined __LP64__ || defined _ADDR64 || defined _CRAYC
+  #define KD_ARCH_64BIT_PTR   1
+#endif
+
+#if !defined KD_ARCH_64BIT_PTR
+  #define KD_ARCH_32BIT_PTR   1
+#endif
+
+#if defined KD_ARCH_64BIT_PTR
+  #define KD_ARCH_PTR_STR     "64 bit"
+#elif defined KD_ARCH_32BIT_PTR
+  #define KD_ARCH_PTR_STR     "32 bit"
+#else
+  #define KD_ARCH_PTR_STR     "Unknown"
+#endif  /* KD_ARCH_64BIT_PTR */
 
 
 /**

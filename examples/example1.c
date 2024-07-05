@@ -1,7 +1,7 @@
 /**
  * @file example1.c
  * @author Kumarjit Das
- * @date 2024-07-03
+ * @date 2024-07-06
  * @brief KDAPI library example source file #1.
  */
 /**
@@ -42,12 +42,12 @@ int main(int argc, char **argv)
   (void) argc;
   (void) argv;
 
-  (void) printf("KDAPI example :: begin\n\n");
+  (void) printf("KDAPI example #1 :: begin\n\n");
 
-  (void) printf("API Version: " KD_VERSION_STR "\n");
+  (void) printf("API Version: %s\n", KD_VERSION_STR);
   
   (void) printf(
-    "Compiler: "
+    "Compiler: %s\n",
     #if defined KD_COMP_INTEL
     "Intel C/C++"
     #elif defined KD_COMP_MIPSPRO
@@ -71,13 +71,12 @@ int main(int argc, char **argv)
     #elif defined KD_COMP_WATCOM
     "Watcom C/C++"
     #else
-    "[Unknown]"
+    "Unknown"
     #endif  /* KD_COMP_INTEL */
-    "\n"
   );
 
   (void) printf(
-    "Target Operating System: "
+    "Target Operating System: %s\n",
     #if defined KD_OS_LINUX
     "Linux"
     #elif defined KD_OS_CYGWIN32
@@ -133,14 +132,13 @@ int main(int argc, char **argv)
     #elif defined KD_OS_MACOS
     "MacOS"
     #else
-    "[Unknown]"
+    "Unknown"
     #endif  /* KD_OS_LINUX */
-    "\n"
   );
 
   
   (void) printf(
-    "Target CPU: "
+    "Target CPU: %s\n",
     #if defined KD_CPU_PPC750
     "IBM PowerPC 750 (NGC)"
     #elif defined KD_CPU_68K
@@ -180,22 +178,42 @@ int main(int argc, char **argv)
     #elif defined KD_CPU_HPPA
     "PA-RISC"
     #else
-    "[Unknown]"
+    "Unknown"
     #endif  /* KD_CPU_PPC750 */
-    "\n"
   );
 
   (void) printf(
-    "Endianness: "
+    "Target Architecture Integer Size: %s\n",
+    #if defined KD_ARCH_64BIT_INT
+    "64 bit"
+    #elif defined KD_ARCH_32BIT_INT
+    "32 bit"
+    #else
+    "Unknown"
+    #endif  /* KD_ARCH_64BIT_INT */
+  );
+
+  (void) printf(
+    "Target Architecture Pointer(Address) Size: %s\n",
+    #if defined KD_ARCH_64BIT_PTR
+    "64 bit"
+    #elif defined KD_ARCH_32BIT_PTR
+    "32 bit"
+    #else
+    "Unknown"
+    #endif  /* KD_ARCH_64BIT_PTR */
+  );
+
+  (void) printf(
+    "Endianness: %s\n",
     #if defined KD_ENDIAN_LITTLE
     "Little"
     #else
     "Big"
     #endif  /* KD_ENDIAN_LITTLE */
-    "\n"
   );
 
-  (void) printf("\nKDAPI example :: end\n\n");
+  (void) printf("\nKDAPI example #1 :: end\n\n");
 
   return 0;
 }
