@@ -3,7 +3,7 @@
 # date: 2024-07-03
 # brief: KDAPI library main cmake file.
 
-# BSD 2-Clause License
+# License:
 #
 # Copyright (c) 2024, Kumarjit Das
 # All rights reserved.

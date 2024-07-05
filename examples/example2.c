@@ -1,7 +1,7 @@
 /**
  * @file example2.c
  * @author Kumarjit Das
- * @date 2024-07-03
+ * @date 2024-07-06
  * @brief KDAPI library example source file #2.
  */
 /**
@@ -42,15 +42,17 @@ int main(int argc, char **argv)
   (void) argc;
   (void) argv;
 
-  (void) printf("KDAPI example :: begin\n\n");
+  (void) printf("KDAPI example #2 :: begin\n\n");
 
-  (void) printf("API Version: " KD_VERSION_STR "\n");
-  (void) printf("Compiler: " KD_COMP_STR "\n");
-  (void) printf("Target Operating System: " KD_OS_STR "\n");
-  (void) printf("Target CPU: " KD_CPU_STR "\n");
-  (void) printf("Endianness: " KD_ENDIAN_STR "\n");
+  (void) printf("API Version: %s\n", KD_VERSION_STR);
+  (void) printf("Compiler: %s\n", KD_COMP_STR);
+  (void) printf("Target Operating System: %s\n", KD_OS_STR);
+  (void) printf("Target CPU: %s\n", KD_CPU_STR);
+  (void) printf("Target Architecture Integer Size: %s\n", KD_ARCH_INT_STR);
+  (void) printf("Target Architecture Pointer(Address) Size: %s\n", KD_ARCH_PTR_STR);
+  (void) printf("Endianness: %s\n", KD_ENDIAN_STR);
 
-  (void) printf("\nKDAPI example :: end\n\n");
+  (void) printf("\nKDAPI example #2 :: end\n\n");
 
   return 0;
 }
