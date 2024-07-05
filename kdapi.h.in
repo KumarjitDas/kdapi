@@ -1,7 +1,7 @@
 /**
  * @file kdapi.h
  * @author Kumarjit Das
- * @date 2024-07-03
+ * @date 2024-07-05
  * @version @KDAPI_VERSION_MAJOR@.@KDAPI_VERSION_MINOR@.@KDAPI_VERSION_PATCH@
  * @brief A simple header-only C library for compile-time system information.
  */
@@ -484,17 +484,21 @@
 
 /**
  * ---------------------------------------------------------------------------------------------------------------------
- *  Extern Indicators
+ *  C++ Detection and Extern Indicators
  * ---------------------------------------------------------------------------------------------------------------------
  */
 
 #ifdef __cplusplus
+  #define KD_CPLUSPLUS 1
+#endif
+
+#if defined KD_CPLUSPLUS
   #define KD_EXTERN_BEGIN extern "C" {
   #define KD_EXTERN_END }
 #else
   #define KD_EXTERN_BEGIN
   #define KD_EXTERN_END
-#endif
+#endif  /* KD_CPLUSPLUS */
 
 
 /**
@@ -510,3 +514,18 @@
   #define KD_ENDIAN_BIG 1
   #define KD_ENDIAN_STR "big"
 #endif
+
+
+/**
+ * ---------------------------------------------------------------------------------------------------------------------
+ *  Cleaning up
+ * ---------------------------------------------------------------------------------------------------------------------
+ */
+
+#ifdef KD_DLL
+  #undef KD_DLL
+#endif  /* KD_DLL */
+
+#ifdef KD_BUILDING_LIB
+  #undef KD_BUILDING_LIB
+#endif  /* KD_BUILDING_LIB */

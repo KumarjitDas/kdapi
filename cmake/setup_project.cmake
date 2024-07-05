@@ -1,6 +1,6 @@
 # file: setup_project.cmake
 # author: Kumarjit Das
-# date: 2024-07-03
+# date: 2024-07-05
 # brief: KDAPI library cmake project setup file.
 
 # License:
@@ -41,7 +41,7 @@ string(TOUPPER ${KDAPI_LIBRARY_NAME} KDAPI_LIBRARY_NAME_UPPER)
 
 # Setting project version
 set(${KDAPI_LIBRARY_NAME_UPPER}_VERSION_MAJOR 1)
-set(${KDAPI_LIBRARY_NAME_UPPER}_VERSION_MINOR 1)
+set(${KDAPI_LIBRARY_NAME_UPPER}_VERSION_MINOR 2)
 set(${KDAPI_LIBRARY_NAME_UPPER}_VERSION_PATCH 0)
 
 string(CONCAT ${KDAPI_LIBRARY_NAME_UPPER}_VERSION

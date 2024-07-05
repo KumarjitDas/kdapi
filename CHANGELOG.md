@@ -2,6 +2,16 @@
 
 ## [Unreleased](https://github.com/KumarjitDas/kdapi/compare/v1.1.0...HEAD)
 
+- Updated main library version to _1.2.0_ in project setup.
+
+- Resolved [Issue #10](https://github.com/KumarjitDas/kdapi/issues/10)&nbsp; (Add undef statements for DLL macros)
+  - Added `undef` statements for DLL macros.
+
+- Resolved [Issue #7](https://github.com/KumarjitDas/kdapi/issues/7)&nbsp; (Add separate macro for C++ detection)
+  - Added a separate macro for C++ detection.
+
+- Added the CLion specific _gitignore_ file.
+
 - Resolved [Issue #9](https://github.com/KumarjitDas/kdapi/issues/9)&nbsp; (CMake files do not contain license statement)
   - Added license statement to all CMake files.
 
@@ -16,6 +26,7 @@
 
 - [Issue #4](https://github.com/KumarjitDas/kdapi/issues/4)&nbsp; Add system specification c-strings
   - User readable c-string macros for _compiler_, _OS_, _CPU_, and _endianness_
+
 - Second example [_examples/example2.c_](examples/example2.c)
 - Target platform validation cmake script [_validate_target_platform.cmake_](cmake/validate_target_platform.cmake).
 
@@ -23,8 +34,10 @@
 
 - [Issue #3](https://github.com/KumarjitDas/kdapi/issues/3)&nbsp; Target platform specific installation name
   - The name of the installation according to the chosen platform
+
 - [Issue #2](https://github.com/KumarjitDas/kdapi/issues/2)&nbsp; C89/C90 standard for example.
   - The default C standard and set it to C89/90 or ANSI C standard for example source compilation
+
 - Main example source file name(_examples/example.c_) to [_examples/example1.c_](examples/example1.c)
 
 ### Removed
