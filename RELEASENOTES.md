@@ -1,5 +1,21 @@
 # Release Notes
 
+## [v1.2.0](https://github.com/KumarjitDas/kdapi/releases/tag/v1.2.0)
+6th July 2024
+
+### Resolved Issues
+
+- [Issue #9](https://github.com/KumarjitDas/kdapi/issues/9): Added license statement to all CMake files.
+- [Issue #7](https://github.com/KumarjitDas/kdapi/issues/7): Added a separate macro for C++ detection.
+- [Issue #10](https://github.com/KumarjitDas/kdapi/issues/10): Added `undef` statements for DLL macros.
+- [Issue #8](https://github.com/KumarjitDas/kdapi/issues/8): Added macros to detect the architecture of the system
+    - For 32-bit and 64-bit integer
+    - For 32-bit and 64-bit pointer(address)
+
+### Added
+
+- The CLion specific _gitignore_ file.
+
 ## [v1.1.0](https://github.com/KumarjitDas/kdapi/releases/tag/v1.1.0)
 3rd July 2024
 
@@ -37,10 +53,10 @@
 - **Build Configuration**: CMake configuration files for shared and static builds.
 - **Example Program**: `examples/example.c` demonstrating library usage.
 
-For more details, see the full [Changelog](CHANGELOG.md).
+For more details, see the full [Changelog on GitHub](CHANGELOG.md) or [raw](https://raw.githubusercontent.com/KumarjitDas/kdapi/main/CHANGELOG.md).
 
 ## Version Details
 
-- **Current Version**: 1.1.0
-- **Release Date**: 2024-07-03
-- **Previous Version**: 1.0.0
+- **Current Version**: 1.2.0
+- **Release Date**: 6th July 2024
+- **Previous Version**: 1.1.0
